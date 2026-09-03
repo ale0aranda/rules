@@ -20,11 +20,15 @@
     "emoji",
     "lint",
     "formatter",
-    "shared-config"
+    "shared-config",
+    "typescript",
+    "renovate",
+    "configuration"
   ],
   "files": [
     "biome.json",
     "commitlint.mjs",
+    "default.json",
     "typescript",
     "README.md",
     "LICENSE"
@@ -36,13 +40,15 @@
     "./typescript/web": "./typescript/web.json",
     "./typescript/node": "./typescript/node.json",
     "./typescript/library": "./typescript/library.json",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./renovate": "./default.json"
   },
   "scripts": {
-    "check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:package",
-    "check:typescript": "node --test test/typescript.test.mjs",
+    "check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:package",
     "check:biome": "biome ci .",
     "check:commitlint": "node --test test/commitlint.test.mjs",
+    "check:typescript": "node --test test/typescript.test.mjs",
+    "check:renovate": "renovate-config-validator --strict --no-global default.json && node --test test/renovate.test.mjs",
     "check:package": "node --test test/package.test.mjs",
     "format": "biome check --write .",
     "prepack": "pnpm check",
@@ -63,7 +69,8 @@
     "@commitlint/cli": "^21.2.2",
     "@commitlint/lint": "^21.2.2",
     "@commitlint/load": "^21.2.2",
-    "@commitlint/types": "^21.2.0"
+    "@commitlint/types": "^21.2.0",
+    "renovate": "^44.56.3"
   },
   "packageManager": "pnpm@11.19.0",
   "dependencies": {

@@ -9,11 +9,13 @@ const packageJson = JSON.parse(
 test('exports every public preset', () => {
   assert.equal(packageJson.exports['./biome'], './biome.json');
   assert.equal(packageJson.exports['./commitlint'], './commitlint.mjs');
+  assert.equal(packageJson.exports['./renovate'], './default.json');
 });
 
 test('ships every exported preset', () => {
   assert.ok(packageJson.files.includes('biome.json'));
   assert.ok(packageJson.files.includes('commitlint.mjs'));
+  assert.ok(packageJson.files.includes('default.json'));
 });
 
 test('exports every TypeScript preset', () => {
