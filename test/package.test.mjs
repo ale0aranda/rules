@@ -14,6 +14,11 @@ test("exports every public preset", () => {
 	assert.equal(packageJson.exports["./renovate"], "./default.json");
 
 	assert.equal(packageJson.exports["./package.json"], "./package.json");
+
+	assert.equal(
+		packageJson.exports["./lint-staged"],
+		"./lint-staged.config.mjs",
+	);
 });
 
 test("ships every public preset", () => {
@@ -24,6 +29,7 @@ test("ships every public preset", () => {
 	assert.ok(packageJson.files.includes("typescript"));
 	assert.ok(packageJson.files.includes("README.md"));
 	assert.ok(packageJson.files.includes("LICENSE"));
+	assert.ok(packageJson.files.includes("lint-staged.config.mjs"));
 });
 
 test("exports every Biome preset", () => {

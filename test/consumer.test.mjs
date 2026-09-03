@@ -104,6 +104,13 @@ test("installs and loads the published package", async () => {
           with { type: 'json' };
         import typescriptLibrary from '@ale0aranda/rules/typescript/library'
           with { type: 'json' };
+        import lintStaged from '@ale0aranda/rules/lint-staged';
+
+        if (Object.keys(lintStaged).length === 0) {
+          throw new Error(
+            'lint-staged preset could not be loaded'
+          );
+        }
 
         if (!commitlint.rules) {
           throw new Error(

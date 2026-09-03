@@ -30,6 +30,7 @@
 		"commitlint.mjs",
 		"default.json",
 		"typescript",
+		"lint-staged.config.mjs",
 		"README.md",
 		"LICENSE"
 	],
@@ -46,21 +47,24 @@
 		"./typescript/web": "./typescript/web.json",
 		"./typescript/node": "./typescript/node.json",
 		"./typescript/library": "./typescript/library.json",
-		"./package.json": "./package.json"
+		"./package.json": "./package.json",
+		"./lint-staged": "./lint-staged.config.mjs"
 	},
 	"scripts": {
 		"changeset": "changeset",
 		"changeset:version": "changeset version",
-		"check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:publint && pnpm check:package && pnpm check:consumer",
+		"check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:hooks && pnpm check:publint && pnpm check:package && pnpm check:consumer",
 		"check:biome": "biome ci .",
 		"check:commitlint": "node --test test/commitlint.test.mjs",
 		"check:typescript": "node --test test/typescript.test.mjs",
 		"check:renovate": "node --test test/renovate.test.mjs",
 		"check:publint": "publint",
+		"check:hooks": "node --test test/lint-staged.test.mjs",
 		"check:package": "node --test test/package.test.mjs",
 		"check:consumer": "node --test test/consumer.test.mjs",
 		"format": "biome check --write .",
-		"prepack": "pnpm check"
+		"prepack": "pnpm check",
+		"prepare": "husky"
 	},
 	"engines": {
 		"node": ">=22.13.0"
@@ -88,6 +92,8 @@
 		"@commitlint/lint": "^21.2.2",
 		"@commitlint/load": "^21.2.2",
 		"@commitlint/types": "^21.2.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.4.1",
 		"publint": "^0.3.24"
 	},
 	"packageManager": "pnpm@11.19.0"
