@@ -1,6 +1,6 @@
 {
   "name": "@ale0aranda/rules",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared Biome and Commitlint rules for Alejandro Aranda's projects.",
   "type": "module",
   "license": "MIT",
