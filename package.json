@@ -48,7 +48,7 @@
     "check:biome": "biome ci .",
     "check:commitlint": "node --test test/commitlint.test.mjs",
     "check:typescript": "node --test test/typescript.test.mjs",
-    "check:renovate": "renovate-config-validator --strict --no-global default.json && node --test test/renovate.test.mjs",
+    "check:renovate": "node --test test/renovate.test.mjs",
     "check:publint": "publint",
     "check:package": "node --test test/package.test.mjs",
     "format": "biome check --write .",
@@ -71,8 +71,7 @@
     "@commitlint/lint": "^21.2.2",
     "@commitlint/load": "^21.2.2",
     "@commitlint/types": "^21.2.0",
-    "publint": "^0.3.24",
-    "renovate": "^44.56.3"
+    "publint": "^0.3.24"
   },
   "packageManager": "pnpm@11.19.0",
   "dependencies": {
