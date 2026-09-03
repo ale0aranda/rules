@@ -15,3 +15,25 @@ test('ships every exported preset', () => {
   assert.ok(packageJson.files.includes('biome.json'));
   assert.ok(packageJson.files.includes('commitlint.mjs'));
 });
+
+test('exports every TypeScript preset', () => {
+  assert.equal(
+    packageJson.exports['./typescript/base'],
+    './typescript/base.json'
+  );
+
+  assert.equal(
+    packageJson.exports['./typescript/web'],
+    './typescript/web.json'
+  );
+
+  assert.equal(
+    packageJson.exports['./typescript/node'],
+    './typescript/node.json'
+  );
+
+  assert.equal(
+    packageJson.exports['./typescript/library'],
+    './typescript/library.json'
+  );
+});
