@@ -1,5 +1,11 @@
 # @ale0aranda/rules
 
+## 0.3.0
+
+### Minor Changes
+
+- [`4f1a864`](https://github.com/ale0aranda/rules/commit/4f1a864b5d12b0c66ce05c16c12bd7303c2f8e26) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add a shared Renovate preset
+
 ## 0.2.0
 
 ### Minor Changes
