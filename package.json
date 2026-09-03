@@ -1,89 +1,94 @@
 {
-  "name": "@ale0aranda/rules",
-  "version": "0.3.0",
-  "description": "Shared Biome and Commitlint rules for Alejandro Aranda's projects.",
-  "type": "module",
-  "license": "MIT",
-  "author": "Alejandro Aranda",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ale0aranda/rules.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ale0aranda/rules/issues"
-  },
-  "homepage": "https://github.com/ale0aranda/rules#readme",
-  "keywords": [
-    "biome",
-    "commitlint",
-    "conventional-commits",
-    "emoji",
-    "lint",
-    "formatter",
-    "shared-config",
-    "typescript",
-    "renovate",
-    "configuration"
-  ],
-  "files": [
-    "biome.json",
-    "commitlint.mjs",
-    "default.json",
-    "typescript",
-    "README.md",
-    "LICENSE"
-  ],
-  "exports": {
-    "./biome": "./biome.json",
-    "./commitlint": "./commitlint.mjs",
-    "./typescript/base": "./typescript/base.json",
-    "./typescript/web": "./typescript/web.json",
-    "./typescript/node": "./typescript/node.json",
-    "./typescript/library": "./typescript/library.json",
-    "./package.json": "./package.json",
-    "./renovate": "./default.json"
-  },
-  "scripts": {
-    "check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:publint && pnpm check:package && pnpm check:consumer",
-    "check:biome": "biome ci .",
-    "check:consumer": "node --test test/consumer.test.mjs",
-    "check:commitlint": "node --test test/commitlint.test.mjs",
-    "check:typescript": "node --test test/typescript.test.mjs",
-    "check:renovate": "node --test test/renovate.test.mjs",
-    "check:publint": "publint",
-    "check:package": "node --test test/package.test.mjs",
-    "format": "biome check --write .",
-    "prepack": "pnpm check",
-    "changeset": "changeset",
-    "changeset:version": "changeset version"
-  },
-  "engines": {
-    "node": ">=22.12.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.5.11",
-    "@changesets/changelog-github": "^1.0.0",
-    "@changesets/cli": "^3.0.1",
-    "@commitlint/cli": "^21.2.2",
-    "@commitlint/lint": "^21.2.2",
-    "@commitlint/load": "^21.2.2",
-    "@commitlint/types": "^21.2.0",
-    "publint": "^0.3.24"
-  },
-  "packageManager": "pnpm@11.19.0",
-  "dependencies": {
-    "@commitlint/config-conventional": "^21.2.2",
-    "conventional-changelog-conventionalcommits": "^10.4.0",
-    "conventional-commit-types-emoji": "^0.1.0",
-    "lodash-es": "^4.18.1"
-  },
-  "peerDependencies": {
-    "@biomejs/biome": ">=2.5.7 <3",
-    "@commitlint/cli": ">=21 <22",
-    "typescript": ">=5.7 <8"
-  }
+	"name": "@ale0aranda/rules",
+	"version": "0.2.0",
+	"description": "Shared Biome, Commitlint, TypeScript and Renovate rules for Alejandro Aranda's projects.",
+	"type": "module",
+	"license": "MIT",
+	"author": "Alejandro Aranda",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ale0aranda/rules.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ale0aranda/rules/issues"
+	},
+	"homepage": "https://github.com/ale0aranda/rules#readme",
+	"keywords": [
+		"biome",
+		"commitlint",
+		"conventional-commits",
+		"emoji",
+		"formatter",
+		"lint",
+		"renovate",
+		"shared-config",
+		"typescript"
+	],
+	"files": [
+		"biome.json",
+		"biome",
+		"commitlint.mjs",
+		"default.json",
+		"typescript",
+		"README.md",
+		"LICENSE"
+	],
+	"exports": {
+		"./biome": "./biome/base.json",
+		"./biome/base": "./biome/base.json",
+		"./biome/web": "./biome/web.json",
+		"./biome/node": "./biome/node.json",
+		"./biome/library": "./biome/library.json",
+		"./biome/monorepo": "./biome/monorepo.json",
+		"./commitlint": "./commitlint.mjs",
+		"./renovate": "./default.json",
+		"./typescript/base": "./typescript/base.json",
+		"./typescript/web": "./typescript/web.json",
+		"./typescript/node": "./typescript/node.json",
+		"./typescript/library": "./typescript/library.json",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"changeset": "changeset",
+		"changeset:version": "changeset version",
+		"check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:publint && pnpm check:package && pnpm check:consumer",
+		"check:biome": "biome ci .",
+		"check:commitlint": "node --test test/commitlint.test.mjs",
+		"check:typescript": "node --test test/typescript.test.mjs",
+		"check:renovate": "node --test test/renovate.test.mjs",
+		"check:publint": "publint",
+		"check:package": "node --test test/package.test.mjs",
+		"check:consumer": "node --test test/consumer.test.mjs",
+		"format": "biome check --write .",
+		"prepack": "pnpm check"
+	},
+	"engines": {
+		"node": ">=22.13.0"
+	},
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	},
+	"dependencies": {
+		"@commitlint/config-conventional": "^21.2.2",
+		"conventional-changelog-conventionalcommits": "^10.4.0",
+		"conventional-commit-types-emoji": "^0.1.0",
+		"lodash-es": "^4.18.1"
+	},
+	"peerDependencies": {
+		"@biomejs/biome": ">=2.5.7 <3",
+		"@commitlint/cli": ">=21 <22",
+		"typescript": ">=5.7 <8"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.11",
+		"@changesets/changelog-github": "^1.0.0",
+		"@changesets/cli": "^3.0.1",
+		"@commitlint/cli": "^21.2.2",
+		"@commitlint/lint": "^21.2.2",
+		"@commitlint/load": "^21.2.2",
+		"@commitlint/types": "^21.2.0",
+		"publint": "^0.3.24"
+	},
+	"packageManager": "pnpm@11.19.0"
 }

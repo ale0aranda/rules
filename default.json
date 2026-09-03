@@ -1,70 +1,70 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Shared Renovate configuration for Alejandro Aranda's projects.",
-  "extends": ["config:best-practices"],
-  "timezone": "America/Santiago",
-  "schedule": ["* 8-9 * * 1"],
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Dependency Dashboard",
-  "labels": ["dependencies"],
-  "prConcurrentLimit": 5,
-  "prHourlyLimit": 2,
-  "minimumReleaseAge": "3 days",
-  "rangeStrategy": "bump",
-  "rebaseWhen": "behind-base-branch",
-  "semanticCommits": "enabled",
-  "semanticCommitType": "chore",
-  "semanticCommitScope": "deps",
-  "commitMessagePrefix": "⬆️ ",
-  "postUpdateOptions": ["pnpmDedupe"],
-  "packageRules": [
-    {
-      "description": "Group non-major production dependency updates",
-      "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "production dependencies"
-    },
-    {
-      "description": "Group non-major development dependency updates",
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "development dependencies"
-    },
-    {
-      "description": "Group Biome packages",
-      "matchPackageNames": ["/^@biomejs//"],
-      "groupName": "Biome"
-    },
-    {
-      "description": "Group Commitlint packages",
-      "matchPackageNames": [
-        "/^@commitlint//",
-        "conventional-changelog-conventionalcommits",
-        "conventional-commit-types-emoji"
-      ],
-      "groupName": "Commitlint"
-    },
-    {
-      "description": "Group Changesets packages",
-      "matchPackageNames": ["/^@changesets//"],
-      "groupName": "Changesets"
-    },
-    {
-      "description": "Group TypeScript packages",
-      "matchPackageNames": ["typescript", "@types/node"],
-      "groupName": "TypeScript"
-    },
-    {
-      "description": "Group GitHub Actions updates",
-      "matchManagers": ["github-actions"],
-      "groupName": "GitHub Actions",
-      "semanticCommitType": "ci",
-      "semanticCommitScope": "deps"
-    },
-    {
-      "description": "Require approval for major updates",
-      "matchUpdateTypes": ["major"],
-      "dependencyDashboardApproval": true
-    }
-  ]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": "Shared Renovate configuration for Alejandro Aranda's projects.",
+	"extends": ["config:best-practices"],
+	"timezone": "America/Santiago",
+	"schedule": ["* 8-9 * * 1"],
+	"dependencyDashboard": true,
+	"dependencyDashboardTitle": "Dependency Dashboard",
+	"labels": ["dependencies"],
+	"prConcurrentLimit": 5,
+	"prHourlyLimit": 2,
+	"minimumReleaseAge": "3 days",
+	"rangeStrategy": "bump",
+	"rebaseWhen": "behind-base-branch",
+	"semanticCommits": "enabled",
+	"semanticCommitType": "chore",
+	"semanticCommitScope": "deps",
+	"commitMessagePrefix": "⬆️ ",
+	"postUpdateOptions": ["pnpmDedupe"],
+	"packageRules": [
+		{
+			"description": "Group non-major production dependency updates",
+			"matchDepTypes": ["dependencies"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"groupName": "production dependencies"
+		},
+		{
+			"description": "Group non-major development dependency updates",
+			"matchDepTypes": ["devDependencies"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"groupName": "development dependencies"
+		},
+		{
+			"description": "Group Biome packages",
+			"matchPackageNames": ["/^@biomejs//"],
+			"groupName": "Biome"
+		},
+		{
+			"description": "Group Commitlint packages",
+			"matchPackageNames": [
+				"/^@commitlint//",
+				"conventional-changelog-conventionalcommits",
+				"conventional-commit-types-emoji"
+			],
+			"groupName": "Commitlint"
+		},
+		{
+			"description": "Group Changesets packages",
+			"matchPackageNames": ["/^@changesets//"],
+			"groupName": "Changesets"
+		},
+		{
+			"description": "Group TypeScript packages",
+			"matchPackageNames": ["typescript", "@types/node"],
+			"groupName": "TypeScript"
+		},
+		{
+			"description": "Group GitHub Actions updates",
+			"matchManagers": ["github-actions"],
+			"groupName": "GitHub Actions",
+			"semanticCommitType": "ci",
+			"semanticCommitScope": "deps"
+		},
+		{
+			"description": "Require approval for major updates",
+			"matchUpdateTypes": ["major"],
+			"dependencyDashboardApproval": true
+		}
+	]
 }
