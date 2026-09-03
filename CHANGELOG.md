@@ -4,6 +4,12 @@
 
 ### Minor Changes
 
+- [`7edc0e5`](https://github.com/ale0aranda/rules/commit/7edc0e557b40f5c6eb3cfdbe4611408e94688023) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add a shared lint-staged preset and Git hook support
+
+## 0.3.0
+
+### Minor Changes
+
 - [`4f1a864`](https://github.com/ale0aranda/rules/commit/4f1a864b5d12b0c66ce05c16c12bd7303c2f8e26) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add a shared Renovate preset
 
 ## 0.2.0
