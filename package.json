@@ -44,8 +44,9 @@
     "./renovate": "./default.json"
   },
   "scripts": {
-    "check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:publint && pnpm check:package",
+    "check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:publint && pnpm check:package && pnpm check:consumer",
     "check:biome": "biome ci .",
+    "check:consumer": "node --test test/consumer.test.mjs",
     "check:commitlint": "node --test test/commitlint.test.mjs",
     "check:typescript": "node --test test/typescript.test.mjs",
     "check:renovate": "node --test test/renovate.test.mjs",
