@@ -1,5 +1,11 @@
 # @ale0aranda/rules
 
+## 0.3.2
+
+### Patch Changes
+
+- [#7](https://github.com/ale0aranda/rules/pull/7) [`5545bb9`](https://github.com/ale0aranda/rules/commit/5545bb90b4c5ff08b52ddaf326a14462200c5aef) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Fix Commitlint parsing for Conventional Commits with optional emojis.
+
 ## 0.3.1
 
 ### Patch Changes
