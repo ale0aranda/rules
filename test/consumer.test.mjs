@@ -7,7 +7,6 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 const currentDirectory = dirname(fileURLToPath(import.meta.url));
-
 const projectDirectory = resolve(currentDirectory, "..");
 
 function run(command, arguments_, options = {}) {
@@ -45,7 +44,6 @@ test("installs and loads the published package", async () => {
 		);
 
 		const [{ filename }] = JSON.parse(output);
-
 		const tarballPath = join(temporaryDirectory, filename);
 
 		await mkdir(consumerDirectory);
@@ -65,7 +63,6 @@ test("installs and loads the published package", async () => {
 				"install",
 				tarballPath,
 				"--ignore-scripts",
-				"--omit=peer",
 				"--no-audit",
 				"--no-fund",
 				"--package-lock=false",
@@ -80,124 +77,165 @@ test("installs and loads the published package", async () => {
 		await writeFile(
 			verificationPath,
 			`
-        import commitlint from '@ale0aranda/rules/commitlint';
+				import commitlint from "@ale0aranda/rules/commitlint";
 
-        import biome from '@ale0aranda/rules/biome'
-          with { type: 'json' };
-        import biomeBase from '@ale0aranda/rules/biome/base'
-          with { type: 'json' };
-        import biomeWeb from '@ale0aranda/rules/biome/web'
-          with { type: 'json' };
-        import biomeNode from '@ale0aranda/rules/biome/node'
-          with { type: 'json' };
-        import biomeLibrary from '@ale0aranda/rules/biome/library'
-          with { type: 'json' };
-        import biomeMonorepo from '@ale0aranda/rules/biome/monorepo'
-          with { type: 'json' };
-        import renovate from '@ale0aranda/rules/renovate'
-          with { type: 'json' };
-        import typescriptBase from '@ale0aranda/rules/typescript/base'
-          with { type: 'json' };
-        import typescriptWeb from '@ale0aranda/rules/typescript/web'
-          with { type: 'json' };
-        import typescriptNode from '@ale0aranda/rules/typescript/node'
-          with { type: 'json' };
-        import typescriptLibrary from '@ale0aranda/rules/typescript/library'
-          with { type: 'json' };
-        import lintStaged from '@ale0aranda/rules/lint-staged';
+				import biome from "@ale0aranda/rules/biome"
+					with { type: "json" };
+				import biomeBase from "@ale0aranda/rules/biome/base"
+					with { type: "json" };
+				import biomeWeb from "@ale0aranda/rules/biome/web"
+					with { type: "json" };
+				import biomeNode from "@ale0aranda/rules/biome/node"
+					with { type: "json" };
+				import biomeLibrary from "@ale0aranda/rules/biome/library"
+					with { type: "json" };
+				import biomeMonorepo from "@ale0aranda/rules/biome/monorepo"
+					with { type: "json" };
+				import renovate from "@ale0aranda/rules/renovate"
+					with { type: "json" };
+				import typescriptBase from "@ale0aranda/rules/typescript/base"
+					with { type: "json" };
+				import typescriptWeb from "@ale0aranda/rules/typescript/web"
+					with { type: "json" };
+				import typescriptNode from "@ale0aranda/rules/typescript/node"
+					with { type: "json" };
+				import typescriptLibrary from "@ale0aranda/rules/typescript/library"
+					with { type: "json" };
+				import lintStaged from "@ale0aranda/rules/lint-staged";
 
-        if (Object.keys(lintStaged).length === 0) {
-          throw new Error(
-            'lint-staged preset could not be loaded'
-          );
-        }
+				if (Object.keys(lintStaged).length === 0) {
+					throw new Error(
+						"lint-staged preset could not be loaded",
+					);
+				}
 
-        if (!commitlint.rules) {
-          throw new Error(
-            'Commitlint preset could not be loaded'
-          );
-        }
+				if (!commitlint.rules) {
+					throw new Error(
+						"Commitlint preset could not be loaded",
+					);
+				}
 
-        if (!biome.formatter || !biome.linter) {
-          throw new Error(
-            'Default Biome preset could not be loaded'
-          );
-        }
+				if (!biome.formatter || !biome.linter) {
+					throw new Error(
+						"Default Biome preset could not be loaded",
+					);
+				}
 
-        if (biome !== biomeBase) {
-          throw new Error(
-            'Default Biome export is not the base preset'
-          );
-        }
+				if (biome !== biomeBase) {
+					throw new Error(
+						"Default Biome export is not the base preset",
+					);
+				}
 
-        const biomePresets = [
-          biomeBase,
-          biomeWeb,
-          biomeNode,
-          biomeLibrary,
-          biomeMonorepo
-        ];
+				const biomePresets = [
+					biomeBase,
+					biomeWeb,
+					biomeNode,
+					biomeLibrary,
+					biomeMonorepo,
+				];
 
-        if (
-          biomePresets.some(
-            (preset) => typeof preset !== 'object'
-          )
-        ) {
-          throw new Error(
-            'A Biome preset could not be loaded'
-          );
-        }
+				if (
+					biomePresets.some(
+						(preset) => typeof preset !== "object",
+					)
+				) {
+					throw new Error(
+						"A Biome preset could not be loaded",
+					);
+				}
 
-        if (!biomeWeb.extends?.includes('./base.json')) {
-          throw new Error(
-            'Biome web preset does not extend base'
-          );
-        }
+				const specializedBiomePresets = [
+					biomeWeb,
+					biomeNode,
+					biomeLibrary,
+					biomeMonorepo,
+				];
 
-        if (!biomeNode.extends?.includes('./base.json')) {
-          throw new Error(
-            'Biome Node.js preset does not extend base'
-          );
-        }
+				if (
+					specializedBiomePresets.some(
+						(preset) =>
+							Object.hasOwn(preset, "extends"),
+					)
+				) {
+					throw new Error(
+						"Specialized Biome presets must not extend other configurations",
+					);
+				}
 
-        if (!biomeLibrary.extends?.includes('./base.json')) {
-          throw new Error(
-            'Biome library preset does not extend base'
-          );
-        }
+				if (
+					biomeNode.linter?.rules?.suspicious
+						?.noConsole !== "off"
+				) {
+					throw new Error(
+						"Biome Node.js preset must allow console usage",
+					);
+				}
 
-        if (!biomeMonorepo.extends?.includes('./web.json')) {
-          throw new Error(
-            'Biome monorepo preset does not extend web'
-          );
-        }
+				if (
+					biomeLibrary.linter?.rules?.suspicious
+						?.noConsole !== "error"
+				) {
+					throw new Error(
+						"Biome library preset must reject console usage",
+					);
+				}
 
-        if (!renovate.packageRules) {
-          throw new Error(
-            'Renovate preset could not be loaded'
-          );
-        }
+				if (!renovate.packageRules) {
+					throw new Error(
+						"Renovate preset could not be loaded",
+					);
+				}
 
-        const typescriptPresets = [
-          typescriptBase,
-          typescriptWeb,
-          typescriptNode,
-          typescriptLibrary
-        ];
+				const typescriptPresets = [
+					typescriptBase,
+					typescriptWeb,
+					typescriptNode,
+					typescriptLibrary,
+				];
 
-        if (
-          typescriptPresets.some(
-            (preset) => !preset.compilerOptions
-          )
-        ) {
-          throw new Error(
-            'A TypeScript preset could not be loaded'
-          );
-        }
-      `,
+				if (
+					typescriptPresets.some(
+						(preset) => !preset.compilerOptions,
+					)
+				) {
+					throw new Error(
+						"A TypeScript preset could not be loaded",
+					);
+				}
+			`,
 		);
 
 		run(process.execPath, [verificationPath], {
+			cwd: consumerDirectory,
+		});
+
+		await writeFile(
+			join(consumerDirectory, "biome.json"),
+			JSON.stringify({
+				extends: [
+					"@ale0aranda/rules/biome/base",
+					"@ale0aranda/rules/biome/node",
+				],
+			}),
+		);
+
+		await writeFile(
+			join(consumerDirectory, ".gitignore"),
+			"node_modules/\ndist/\n",
+		);
+
+		await writeFile(
+			join(consumerDirectory, "fixture.js"),
+			'console.log("Biome consumer test");\n',
+		);
+
+		const biomeExecutable =
+			process.platform === "win32"
+				? join(consumerDirectory, "node_modules", ".bin", "biome.cmd")
+				: join(consumerDirectory, "node_modules", ".bin", "biome");
+
+		run(biomeExecutable, ["lint", "fixture.js"], {
 			cwd: consumerDirectory,
 		});
 
