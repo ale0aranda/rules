@@ -1,5 +1,11 @@
 # @ale0aranda/rules
 
+## 0.3.1
+
+### Patch Changes
+
+- [#4](https://github.com/ale0aranda/rules/pull/4) [`aa969d8`](https://github.com/ale0aranda/rules/commit/aa969d878eeef2ac9913c057dac1a186eb766a94) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Fix specialized Biome presets so consumers can compose them.
+
 ## 0.3.0
 
 ### Minor Changes
