@@ -1,39 +1,80 @@
-import { createRequire } from "node:module";
-
 import conventional from "@commitlint/config-conventional";
 import createPreset from "conventional-changelog-conventionalcommits";
 import { merge } from "lodash-es";
 
-const require = createRequire(import.meta.url);
-
-const { types } = require("conventional-commit-types-emoji");
-
-const commitTypes = Object.fromEntries(
-	Object.entries(types).map(([type, value]) => {
-		const [emoji, ...description] = value.description.trim().split(/\s+/);
-
-		return [
-			type,
-			{
-				emoji,
-				title: type,
-				description: description.join(" "),
-			},
-		];
-	}),
-);
+const commitTypes = {
+	feat: {
+		emoji: "✨",
+		title: "feat",
+		description: "Add a new feature",
+	},
+	fix: {
+		emoji: "🐛",
+		title: "fix",
+		description: "Fix a bug",
+	},
+	docs: {
+		emoji: "📚",
+		title: "docs",
+		description: "Update documentation",
+	},
+	style: {
+		emoji: "💎",
+		title: "style",
+		description: "Change formatting without affecting behavior",
+	},
+	refactor: {
+		emoji: "📦",
+		title: "refactor",
+		description: "Refactor code without changing behavior",
+	},
+	perf: {
+		emoji: "🚀",
+		title: "perf",
+		description: "Improve performance",
+	},
+	test: {
+		emoji: "🚨",
+		title: "test",
+		description: "Add or update tests",
+	},
+	build: {
+		emoji: "🛠️",
+		title: "build",
+		description: "Update the build system or dependencies",
+	},
+	ci: {
+		emoji: "⚙️",
+		title: "ci",
+		description: "Update continuous integration",
+	},
+	chore: {
+		emoji: "♻️",
+		title: "chore",
+		description: "Perform maintenance tasks",
+	},
+	revert: {
+		emoji: "🗑️",
+		title: "revert",
+		description: "Revert a previous change",
+	},
+};
 
 const emojiPattern = Object.values(commitTypes)
-	.map(({ emoji }) => emoji)
+	.map(({ emoji }) => {
+		const emojiWithoutVariationSelector = emoji.replaceAll("\uFE0F", "");
+
+		return `${emojiWithoutVariationSelector}\uFE0F?`;
+	})
 	.join("|");
 
 const parserOpts = {
 	headerPattern: new RegExp(
-		`^(?:${emojiPattern})\\s+(\\w*)(?:\\((.*)\\))?!?:\\s+(.*)$`,
+		`^(?:(?:${emojiPattern})\\s+)?(\\w*)(?:\\((.*)\\))?!?:\\s+(.*)$`,
 	),
 
 	breakingHeaderPattern: new RegExp(
-		`^(?:${emojiPattern})\\s+(\\w*)(?:\\((.*)\\))?!:\\s+(.*)$`,
+		`^(?:(?:${emojiPattern})\\s+)?(\\w*)(?:\\((.*)\\))?!:\\s+(.*)$`,
 	),
 
 	headerCorrespondence: ["type", "scope", "subject"],
@@ -78,7 +119,7 @@ const config = {
 			...conventional.prompt?.questions,
 
 			type: {
-				description: "Select the exchange rate:",
+				description: "Select the commit type:",
 				enum: commitTypes,
 				headerWithEmoji: true,
 			},

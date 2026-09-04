@@ -14,9 +14,6 @@ importers:
       conventional-changelog-conventionalcommits:
         specifier: ^10.4.0
         version: 10.4.0
-      conventional-commit-types-emoji:
-        specifier: ^0.1.0
-        version: 0.1.0
       lodash-es:
         specifier: ^4.18.1
         version: 4.18.1
@@ -472,9 +469,6 @@ packages:
   conventional-changelog-conventionalcommits@10.4.0:
     resolution: {integrity: sha512-Rriac6ZrAlVm6cy9Bz4NSp+WMHpwNXoPIYex+HjCgduAVUSbnew29DQjQw0C4g9u3HtSYzGiGY+pdBXAZo+4aA==}
     engines: {node: '>=22'}
-
-  conventional-commit-types-emoji@0.1.0:
-    resolution: {integrity: sha512-3hLa62ZEGfEohLJGhIbM9pAFOUTSJr4aWBiUGW3aFsOsSEv2ElG1+cITvuBi4tlcI/VC016i9do78jjqHndMqQ==}
 
   conventional-commits-parser@7.1.2:
     resolution: {integrity: sha512-O+x4N2yH+ijvqWlIyTHsXTAP+algNWgGbjY2duCe8w2vUMvUB95cLRslCPfTMQyLAKlet3bhZTdu6ozn4M+QJQ==}
@@ -1138,8 +1132,6 @@ snapshots:
   conventional-changelog-conventionalcommits@10.4.0:
     dependencies:
       '@conventional-changelog/template': 1.4.0
-
-  conventional-commit-types-emoji@0.1.0: {}
 
   conventional-commits-parser@7.1.2:
     dependencies:
