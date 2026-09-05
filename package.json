@@ -1,6 +1,6 @@
 {
 	"name": "@ale0aranda/rules",
-	"version": "0.3.2",
+	"version": "0.4.0",
 	"description": "Shared Biome, Commitlint, TypeScript and Renovate rules for Alejandro Aranda's projects.",
 	"type": "module",
 	"license": "MIT",

@@ -1,5 +1,11 @@
 # @ale0aranda/rules
 
+## 0.4.0
+
+### Minor Changes
+
+- [`cec7748`](https://github.com/ale0aranda/rules/commit/cec77489d6f458fb64b84bb21a17709411a9329c) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add shared Vitest configuration presets
+
 ## 0.3.2
 
 ### Patch Changes
