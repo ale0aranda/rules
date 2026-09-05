@@ -32,7 +32,8 @@
 		"typescript",
 		"lint-staged.config.mjs",
 		"README.md",
-		"LICENSE"
+		"LICENSE",
+		"vitest"
 	],
 	"exports": {
 		"./biome": "./biome/base.json",
@@ -48,7 +49,10 @@
 		"./typescript/node": "./typescript/node.json",
 		"./typescript/library": "./typescript/library.json",
 		"./package.json": "./package.json",
-		"./lint-staged": "./lint-staged.config.mjs"
+		"./lint-staged": "./lint-staged.config.mjs",
+		"./vitest/base": "./vitest/base.mjs",
+		"./vitest/node": "./vitest/node.mjs",
+		"./vitest/web": "./vitest/web.mjs"
 	},
 	"scripts": {
 		"changeset": "changeset",
@@ -93,7 +97,9 @@
 		"@commitlint/types": "^21.2.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^17.4.1",
-		"publint": "^0.3.24"
+		"publint": "^0.3.24",
+		"@vitest/coverage-v8": "^5.0.0",
+		"vitest": "^5.0.0"
 	},
 	"packageManager": "pnpm@11.19.0"
 }
