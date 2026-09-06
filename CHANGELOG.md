@@ -1,5 +1,15 @@
 # @ale0aranda/rules
 
+## 0.5.0
+
+### Minor Changes
+
+- [`830d479`](https://github.com/ale0aranda/rules/commit/830d47971ce77fc3306f544a6d1f759b57ff1e53) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add shared tsup presets for base, library, and CLI builds.
+
+- [`a0ff432`](https://github.com/ale0aranda/rules/commit/a0ff43266949aad4748e6ebb2384ba2afc90d68e) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add shared unbuild presets for ESM library builds.
+
+- [`c8ed14b`](https://github.com/ale0aranda/rules/commit/c8ed14b84ccf676d18f1137da988cf4defe5440d) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add shared esbuild presets for Node, CLI, and script builds.
+
 ## 0.4.0
 
 ### Minor Changes
