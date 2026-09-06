@@ -33,7 +33,8 @@
 		"lint-staged.config.mjs",
 		"README.md",
 		"LICENSE",
-		"vitest"
+		"vitest",
+		"tsup"
 	],
 	"exports": {
 		"./biome": "./biome/base.json",
@@ -52,14 +53,19 @@
 		"./lint-staged": "./lint-staged.config.mjs",
 		"./vitest/base": "./vitest/base.mjs",
 		"./vitest/node": "./vitest/node.mjs",
-		"./vitest/web": "./vitest/web.mjs"
+		"./vitest/web": "./vitest/web.mjs",
+		"./tsup": "./tsup/base.mjs",
+		"./tsup/base": "./tsup/base.mjs",
+		"./tsup/library": "./tsup/library.mjs",
+		"./tsup/cli": "./tsup/cli.mjs"
 	},
 	"scripts": {
 		"changeset": "changeset",
 		"changeset:version": "changeset version",
-		"check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:hooks && pnpm check:publint && pnpm check:package && pnpm check:consumer",
+		"check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:hooks && pnpm check:publint && pnpm check:package && pnpm check:consumer && pnpm check:tsup",
 		"check:biome": "biome ci .",
 		"check:commitlint": "node --test test/commitlint.test.mjs",
+		"check:tsup": "node --test test/tsup.test.mjs",
 		"check:typescript": "node --test test/typescript.test.mjs",
 		"check:renovate": "node --test test/renovate.test.mjs",
 		"check:publint": "publint",
@@ -85,7 +91,8 @@
 	"peerDependencies": {
 		"@biomejs/biome": ">=2.5.7 <3",
 		"@commitlint/cli": ">=21 <22",
-		"typescript": ">=5.7 <8"
+		"typescript": ">=5.7 <8",
+		"tsup": ">=8.5.1 <9"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.11",
@@ -95,11 +102,12 @@
 		"@commitlint/lint": "^21.2.2",
 		"@commitlint/load": "^21.2.2",
 		"@commitlint/types": "^21.2.0",
+		"@vitest/coverage-v8": "^5.0.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^17.4.1",
 		"publint": "^0.3.24",
-		"@vitest/coverage-v8": "^5.0.0",
-		"vitest": "^5.0.0"
+		"vitest": "^5.0.0",
+		"tsup": "^8.5.1"
 	},
 	"packageManager": "pnpm@11.19.0"
 }
