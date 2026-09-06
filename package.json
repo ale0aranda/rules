@@ -35,7 +35,8 @@
 		"LICENSE",
 		"vitest",
 		"tsup",
-		"unbuild"
+		"unbuild",
+		"esbuild"
 	],
 	"exports": {
 		"./biome": "./biome/base.json",
@@ -61,12 +62,17 @@
 		"./tsup/cli": "./tsup/cli.mjs",
 		"./unbuild": "./unbuild/base.mjs",
 		"./unbuild/base": "./unbuild/base.mjs",
-		"./unbuild/library": "./unbuild/library.mjs"
+		"./unbuild/library": "./unbuild/library.mjs",
+		"./esbuild": "./esbuild/base.mjs",
+		"./esbuild/base": "./esbuild/base.mjs",
+		"./esbuild/node": "./esbuild/node.mjs",
+		"./esbuild/cli": "./esbuild/cli.mjs",
+		"./esbuild/script": "./esbuild/script.mjs"
 	},
 	"scripts": {
 		"changeset": "changeset",
 		"changeset:version": "changeset version",
-		"check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:hooks && pnpm check:publint && pnpm check:package && pnpm check:consumer && pnpm check:tsup && pnpm check:unbuild",
+		"check": "pnpm check:biome && pnpm check:commitlint && pnpm check:typescript && pnpm check:renovate && pnpm check:hooks && pnpm check:publint && pnpm check:package && pnpm check:consumer && pnpm check:tsup && pnpm check:unbuild && pnpm check:esbuild",
 		"check:biome": "biome ci .",
 		"check:commitlint": "node --test test/commitlint.test.mjs",
 		"check:tsup": "node --test test/tsup.test.mjs",
@@ -77,6 +83,7 @@
 		"check:package": "node --test test/package.test.mjs",
 		"check:consumer": "node --test test/consumer.test.mjs",
 		"check:unbuild": "node --test test/unbuild.test.mjs",
+		"check:esbuild": "node --test test/esbuild.test.mjs",
 		"format": "biome check --write .",
 		"prepack": "pnpm check",
 		"prepare": "husky"
@@ -109,6 +116,7 @@
 		"@commitlint/load": "^21.2.2",
 		"@commitlint/types": "^21.2.0",
 		"@vitest/coverage-v8": "^5.0.0",
+		"esbuild": "^0.28.2",
 		"husky": "^9.1.7",
 		"lint-staged": "^17.4.1",
 		"publint": "^0.3.24",
