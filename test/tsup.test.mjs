@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import baseConfig, { defineTsupConfig } from "../tsup/base.mjs";
-import cliConfig, { defineCliConfig } from "../tsup/cli.mjs";
-import libraryConfig, { defineLibraryConfig } from "../tsup/library.mjs";
+import cliConfig, { defineTsupCliConfig } from "../tsup/cli.mjs";
+import libraryConfig, { defineTsupLibraryConfig } from "../tsup/library.mjs";
 
 describe("tsup shared configuration", () => {
 	it("defines the base defaults", () => {
@@ -41,7 +41,7 @@ describe("tsup shared configuration", () => {
 	});
 
 	it("allows overriding library options", () => {
-		const config = defineLibraryConfig({
+		const config = defineTsupLibraryConfig({
 			entry: ["src/main.ts"],
 		});
 
@@ -50,7 +50,7 @@ describe("tsup shared configuration", () => {
 	});
 
 	it("preserves the cli shebang when merging banner options", () => {
-		const config = defineCliConfig({
+		const config = defineTsupCliConfig({
 			banner: {
 				css: "/* generated */",
 			},
