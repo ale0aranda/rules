@@ -1,5 +1,13 @@
 # @ale0aranda/rules
 
+## 0.6.1
+
+### Patch Changes
+
+- [`7c48930`](https://github.com/ale0aranda/rules/commit/7c489302ad8609dae1b0d5fa146b2a242be4b453) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add TypeScript declarations for JavaScript tooling presets.
+
+- [`7c48930`](https://github.com/ale0aranda/rules/commit/7c489302ad8609dae1b0d5fa146b2a242be4b453) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add TypeScript declarations for JavaScript tooling presets.
+
 ## 0.6.0
 
 ### Minor Changes
