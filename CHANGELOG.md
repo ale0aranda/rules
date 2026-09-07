@@ -1,5 +1,17 @@
 # @ale0aranda/rules
 
+## 0.6.0
+
+### Minor Changes
+
+- [`7baf0f1`](https://github.com/ale0aranda/rules/commit/7baf0f100428ffd8d1888c9fc317212a741c8110) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add shared Vite presets for web, React, and library projects.
+
+- [`2a04e8b`](https://github.com/ale0aranda/rules/commit/2a04e8be28a88e75d351524b32a4d02527e18ad9) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add a shared Next.js base configuration.
+
+- [`0a015e4`](https://github.com/ale0aranda/rules/commit/0a015e4fe78e053ce002c4ca274213f0e8e08cd8) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add a reusable GitHub Actions workflow for project checks.
+
+- [`c0df63f`](https://github.com/ale0aranda/rules/commit/c0df63f5b24042f6c8cf4330ccffacea0015ab4a) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add a shared Knip preset for dead code and dependency analysis.
+
 ## 0.5.0
 
 ### Minor Changes
