@@ -1,4 +1,16 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"extends": ["./biome/library.json"]
+	"extends": ["./biome/library.json"],
+	"overrides": [
+		{
+			"includes": ["scripts/**/*.mjs"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noConsole": "off"
+					}
+				}
+			}
+		}
+	]
 }

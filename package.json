@@ -95,7 +95,7 @@
 		"test": "node --test test/*.test.mjs",
 		"prepack": "pnpm check",
 		"prepare": "husky",
-		"release": "pnpm publish --access public"
+		"release": "node scripts/release.mjs"
 	},
 	"engines": {
 		"node": ">=22.13.0"
