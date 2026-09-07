@@ -1,5 +1,11 @@
 # @ale0aranda/rules
 
+## 0.6.2
+
+### Patch Changes
+
+- [`5cb5cee`](https://github.com/ale0aranda/rules/commit/5cb5cee3a152d285a7dde9bf24c950acbb127fd1) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Fix CLI shebang formatting in tsup and esbuild presets.
+
 ## 0.6.1
 
 ### Patch Changes
