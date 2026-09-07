@@ -1,0 +1,20 @@
+{
+	"$schema": "https://unpkg.com/knip@latest/schema.json",
+	"include": [
+		"files",
+		"dependencies",
+		"devDependencies",
+		"optionalPeerDependencies",
+		"unlisted",
+		"binaries",
+		"unresolved",
+		"exports",
+		"nsExports",
+		"types",
+		"nsTypes",
+		"enumMembers",
+		"classMembers",
+		"duplicates"
+	],
+	"exclude": []
+}
