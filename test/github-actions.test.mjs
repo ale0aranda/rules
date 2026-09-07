@@ -12,8 +12,8 @@ describe("GitHub Actions shared workflows", () => {
 		assert.match(workflow, /workflow_call:/);
 	});
 
-	it("uses Node.js 22 by default", () => {
-		assert.match(workflow, /default: "22"/);
+	it("uses Node.js 24 by default", () => {
+		assert.match(workflow, /default: "24"/);
 	});
 
 	it("uses pnpm", () => {
