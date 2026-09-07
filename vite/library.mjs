@@ -5,6 +5,7 @@ import { defineViteConfig } from "./base.mjs";
  * @returns {import("vite").UserConfig}
  */
 export function defineViteLibraryConfig(overrides = {}) {
+	/** @type {NonNullable<import("vite").UserConfig["build"]>} */
 	const build = {
 		outDir: "dist",
 		emptyOutDir: true,

@@ -1,6 +1,9 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"extends": ["./biome/library.json"],
+	"files": {
+		"includes": ["**", "!!types"]
+	},
 	"overrides": [
 		{
 			"includes": ["scripts/**/*.mjs"],

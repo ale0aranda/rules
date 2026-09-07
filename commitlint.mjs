@@ -121,7 +121,7 @@ const config = {
 			type: {
 				description: "Select the commit type:",
 				enum: commitTypes,
-				headerWithEmoji: true,
+				emojiInHeader: true,
 			},
 		},
 	},
