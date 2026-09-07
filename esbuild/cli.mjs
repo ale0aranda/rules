@@ -6,7 +6,7 @@ import { defineEsbuildConfig } from "./base.mjs";
  */
 export function defineEsbuildCliConfig(overrides = {}) {
 	const banner = {
-		js: "#!/usr/bin/env node",
+		js: "#!/usr/bin/env node\n",
 		...overrides.banner,
 	};
 

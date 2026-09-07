@@ -27,7 +27,7 @@ describe("esbuild shared configuration", () => {
 	it("configures bundled cli builds", () => {
 		assert.equal(cliConfig.packages, "bundle");
 		assert.equal(cliConfig.minify, true);
-		assert.equal(cliConfig.banner.js, "#!/usr/bin/env node");
+		assert.equal(cliConfig.banner.js, "#!/usr/bin/env node\n");
 	});
 
 	it("configures bundled scripts", () => {
@@ -63,7 +63,7 @@ describe("esbuild shared configuration", () => {
 			},
 		});
 
-		assert.equal(config.banner.js, "#!/usr/bin/env node");
+		assert.equal(config.banner.js, "#!/usr/bin/env node\n");
 		assert.equal(config.banner.css, "/* generated */");
 	});
 

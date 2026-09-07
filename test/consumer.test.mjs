@@ -330,7 +330,7 @@ test("installs and loads the published package", async () => {
         if (
           esbuildBase.format !== "esm" ||
           esbuildNode.packages !== "external" ||
-          esbuildCli.banner?.js !== "#!/usr/bin/env node" ||
+          esbuildCli.banner?.js !== "#!/usr/bin/env node\\n" ||
           !esbuildScript.entryPoints
         ) {
           throw new Error(

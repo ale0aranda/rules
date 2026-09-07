@@ -27,7 +27,7 @@ describe("tsup shared configuration", () => {
 	it("configures cli builds", () => {
 		assert.equal(cliConfig.dts, true);
 		assert.equal(cliConfig.minify, true);
-		assert.equal(cliConfig.banner.js, "#!/usr/bin/env node");
+		assert.equal(cliConfig.banner.js, "#!/usr/bin/env node\n");
 	});
 
 	it("allows overriding base options", () => {
@@ -56,7 +56,7 @@ describe("tsup shared configuration", () => {
 			},
 		});
 
-		assert.equal(config.banner.js, "#!/usr/bin/env node");
+		assert.equal(config.banner.js, "#!/usr/bin/env node\n");
 		assert.equal(config.banner.css, "/* generated */");
 	});
 });
