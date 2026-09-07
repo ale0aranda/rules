@@ -1,6 +1,6 @@
 {
 	"name": "@ale0aranda/rules",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"description": "Shared development rules and tooling presets for Alejandro Aranda's projects.",
 	"type": "module",
 	"license": "MIT",
