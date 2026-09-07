@@ -1,7 +1,7 @@
 {
 	"name": "@ale0aranda/rules",
 	"version": "0.5.0",
-	"description": "Shared Biome, Commitlint, TypeScript and Renovate rules for Alejandro Aranda's projects.",
+	"description": "Shared development rules and tooling presets for Alejandro Aranda's projects.",
 	"type": "module",
 	"license": "MIT",
 	"author": "Alejandro Aranda",
@@ -17,13 +17,16 @@
 		"biome",
 		"commitlint",
 		"esbuild",
+		"knip",
 		"lint-staged",
+		"next",
 		"renovate",
 		"shared-config",
 		"tooling",
 		"tsup",
 		"typescript",
 		"unbuild",
+		"vite",
 		"vitest"
 	],
 	"files": [
@@ -32,14 +35,14 @@
 		"commitlint.mjs",
 		"default.json",
 		"esbuild",
+		"knip",
 		"lint-staged.config.mjs",
+		"next",
 		"typescript",
 		"tsup",
 		"unbuild",
 		"vite",
 		"vitest",
-		"next",
-		"knip",
 		"LICENSE",
 		"README.md"
 	],
@@ -57,17 +60,11 @@
 		"./typescript/library": "./typescript/library.json",
 		"./typescript/node": "./typescript/node.json",
 		"./typescript/web": "./typescript/web.json",
-		"./vite": "./vite/base.mjs",
-		"./vite/base": "./vite/base.mjs",
-		"./vite/react": "./vite/react.mjs",
-		"./vite/library": "./vite/library.mjs",
 		"./vitest/base": "./vitest/base.mjs",
 		"./vitest/node": "./vitest/node.mjs",
 		"./vitest/web": "./vitest/web.mjs",
 		"./tsup": "./tsup/base.mjs",
 		"./tsup/base": "./tsup/base.mjs",
-		"./next": "./next/base.mjs",
-		"./next/base": "./next/base.mjs",
 		"./tsup/cli": "./tsup/cli.mjs",
 		"./tsup/library": "./tsup/library.mjs",
 		"./unbuild": "./unbuild/base.mjs",
@@ -78,9 +75,15 @@
 		"./esbuild/cli": "./esbuild/cli.mjs",
 		"./esbuild/node": "./esbuild/node.mjs",
 		"./esbuild/script": "./esbuild/script.mjs",
-		"./package.json": "./package.json",
+		"./vite": "./vite/base.mjs",
+		"./vite/base": "./vite/base.mjs",
+		"./vite/library": "./vite/library.mjs",
+		"./vite/react": "./vite/react.mjs",
+		"./next": "./next/base.mjs",
+		"./next/base": "./next/base.mjs",
 		"./knip": "./knip/base.json",
-		"./knip/base": "./knip/base.json"
+		"./knip/base": "./knip/base.json",
+		"./package.json": "./package.json"
 	},
 	"scripts": {
 		"changeset": "changeset",
@@ -91,7 +94,8 @@
 		"format": "biome check --write .",
 		"test": "node --test test/*.test.mjs",
 		"prepack": "pnpm check",
-		"prepare": "husky"
+		"prepare": "husky",
+		"release": "pnpm publish --access public"
 	},
 	"engines": {
 		"node": ">=22.13.0"

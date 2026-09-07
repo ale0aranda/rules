@@ -38,48 +38,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Create version pull request
+      - name: Check
+        run: pnpm check
+
+      - name: Create release pull request or publish
         uses: changesets/action@v1
         with:
           version: pnpm changeset:version
+          publish: pnpm publish --access public
           title: "📦 chore(release): version package"
           commit: "📦 chore(release): version package"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Read package version
-        id: package
-        run: |
-          PACKAGE_NAME=$(node -p "require('./package.json').name")
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-
-          echo "name=$PACKAGE_NAME" >> "$GITHUB_OUTPUT"
-          echo "version=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
-
-      - name: Check whether version is already published
-        id: registry
-        env:
-          PACKAGE_NAME: ${{ steps.package.outputs.name }}
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-        run: |
-          if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" version >/dev/null 2>&1; then
-            echo "published=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "published=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Check package
-        if: steps.registry.outputs.published == 'false'
-        run: pnpm check
-
-      - name: Publish package to npm
-        if: steps.registry.outputs.published == 'false'
-        run: npm publish --access public
-
-      - name: Create Git tag
-        if: steps.registry.outputs.published == 'false'
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-        run: |
-          git tag "v$PACKAGE_VERSION"
-          git push origin "v$PACKAGE_VERSION"
