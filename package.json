@@ -40,6 +40,7 @@
 		"next",
 		"typescript",
 		"tsup",
+		"types",
 		"unbuild",
 		"vite",
 		"vitest",
@@ -53,47 +54,118 @@
 		"./biome/monorepo": "./biome/monorepo.json",
 		"./biome/node": "./biome/node.json",
 		"./biome/web": "./biome/web.json",
-		"./commitlint": "./commitlint.mjs",
-		"./lint-staged": "./lint-staged.config.mjs",
+		"./commitlint": {
+			"types": "./types/commitlint.d.mts",
+			"default": "./commitlint.mjs"
+		},
+		"./lint-staged": {
+			"types": "./types/lint-staged.config.d.mts",
+			"default": "./lint-staged.config.mjs"
+		},
 		"./renovate": "./default.json",
 		"./typescript/base": "./typescript/base.json",
 		"./typescript/library": "./typescript/library.json",
 		"./typescript/node": "./typescript/node.json",
 		"./typescript/web": "./typescript/web.json",
-		"./vitest/base": "./vitest/base.mjs",
-		"./vitest/node": "./vitest/node.mjs",
-		"./vitest/web": "./vitest/web.mjs",
-		"./tsup": "./tsup/base.mjs",
-		"./tsup/base": "./tsup/base.mjs",
-		"./tsup/cli": "./tsup/cli.mjs",
-		"./tsup/library": "./tsup/library.mjs",
-		"./unbuild": "./unbuild/base.mjs",
-		"./unbuild/base": "./unbuild/base.mjs",
-		"./unbuild/library": "./unbuild/library.mjs",
-		"./esbuild": "./esbuild/base.mjs",
-		"./esbuild/base": "./esbuild/base.mjs",
-		"./esbuild/cli": "./esbuild/cli.mjs",
-		"./esbuild/node": "./esbuild/node.mjs",
-		"./esbuild/script": "./esbuild/script.mjs",
-		"./vite": "./vite/base.mjs",
-		"./vite/base": "./vite/base.mjs",
-		"./vite/library": "./vite/library.mjs",
-		"./vite/react": "./vite/react.mjs",
-		"./next": "./next/base.mjs",
-		"./next/base": "./next/base.mjs",
+		"./vitest/base": {
+			"types": "./types/vitest/base.d.mts",
+			"default": "./vitest/base.mjs"
+		},
+		"./vitest/node": {
+			"types": "./types/vitest/node.d.mts",
+			"default": "./vitest/node.mjs"
+		},
+		"./vitest/web": {
+			"types": "./types/vitest/web.d.mts",
+			"default": "./vitest/web.mjs"
+		},
+		"./tsup": {
+			"types": "./types/tsup/base.d.mts",
+			"default": "./tsup/base.mjs"
+		},
+		"./tsup/base": {
+			"types": "./types/tsup/base.d.mts",
+			"default": "./tsup/base.mjs"
+		},
+		"./tsup/cli": {
+			"types": "./types/tsup/cli.d.mts",
+			"default": "./tsup/cli.mjs"
+		},
+		"./tsup/library": {
+			"types": "./types/tsup/library.d.mts",
+			"default": "./tsup/library.mjs"
+		},
+		"./unbuild": {
+			"types": "./types/unbuild/base.d.mts",
+			"default": "./unbuild/base.mjs"
+		},
+		"./unbuild/base": {
+			"types": "./types/unbuild/base.d.mts",
+			"default": "./unbuild/base.mjs"
+		},
+		"./unbuild/library": {
+			"types": "./types/unbuild/library.d.mts",
+			"default": "./unbuild/library.mjs"
+		},
+		"./esbuild": {
+			"types": "./types/esbuild/base.d.mts",
+			"default": "./esbuild/base.mjs"
+		},
+		"./esbuild/base": {
+			"types": "./types/esbuild/base.d.mts",
+			"default": "./esbuild/base.mjs"
+		},
+		"./esbuild/cli": {
+			"types": "./types/esbuild/cli.d.mts",
+			"default": "./esbuild/cli.mjs"
+		},
+		"./esbuild/node": {
+			"types": "./types/esbuild/node.d.mts",
+			"default": "./esbuild/node.mjs"
+		},
+		"./esbuild/script": {
+			"types": "./types/esbuild/script.d.mts",
+			"default": "./esbuild/script.mjs"
+		},
+		"./vite": {
+			"types": "./types/vite/base.d.mts",
+			"default": "./vite/base.mjs"
+		},
+		"./vite/base": {
+			"types": "./types/vite/base.d.mts",
+			"default": "./vite/base.mjs"
+		},
+		"./vite/library": {
+			"types": "./types/vite/library.d.mts",
+			"default": "./vite/library.mjs"
+		},
+		"./vite/react": {
+			"types": "./types/vite/react.d.mts",
+			"default": "./vite/react.mjs"
+		},
+		"./next": {
+			"types": "./types/next/base.d.mts",
+			"default": "./next/base.mjs"
+		},
+		"./next/base": {
+			"types": "./types/next/base.d.mts",
+			"default": "./next/base.mjs"
+		},
 		"./knip": "./knip/base.json",
 		"./knip/base": "./knip/base.json",
 		"./package.json": "./package.json"
 	},
 	"scripts": {
+		"build:types": "tsc -p tsconfig.types.json",
 		"changeset": "changeset",
 		"changeset:version": "changeset version",
-		"check": "pnpm check:biome && pnpm test && pnpm check:publint",
+		"check": "pnpm check:biome && pnpm check:types && pnpm test && pnpm check:publint",
 		"check:biome": "biome ci .",
 		"check:publint": "publint",
+		"check:types": "tsc -p tsconfig.types.json --noEmit",
 		"format": "biome check --write .",
 		"test": "node --test test/*.test.mjs",
-		"prepack": "pnpm check",
+		"prepack": "pnpm build:types && pnpm check",
 		"prepare": "husky",
 		"release": "node scripts/release.mjs"
 	},
@@ -139,6 +211,7 @@
 		"react": "^19.2.8",
 		"react-dom": "^19.2.8",
 		"tsup": "^8.5.1",
+		"typescript": "^5.9.3",
 		"unbuild": "^3.6.1",
 		"vite": "^8.2.2",
 		"vitest": "^5.0.0"

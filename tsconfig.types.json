@@ -1,0 +1,26 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"declarationMap": false,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"target": "ES2022",
+		"outDir": "types",
+		"strict": true,
+		"skipLibCheck": true
+	},
+	"include": [
+		"commitlint.mjs",
+		"lint-staged.config.mjs",
+		"tsup/**/*.mjs",
+		"unbuild/**/*.mjs",
+		"esbuild/**/*.mjs",
+		"vite/**/*.mjs",
+		"vitest/**/*.mjs",
+		"next/**/*.mjs"
+	]
+}
