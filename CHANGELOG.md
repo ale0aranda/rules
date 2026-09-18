@@ -1,5 +1,11 @@
 # @ale0aranda/rules
 
+## 0.6.4
+
+### Patch Changes
+
+- [`d7bdf57`](https://github.com/ale0aranda/rules/commit/d7bdf574b221fa07ae7cdcc3d3857b21652e0109) Thanks [@ale0aranda](https://github.com/ale0aranda)! - remove dependency
+
 ## 0.6.3
 
 ### Patch Changes
