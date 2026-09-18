@@ -1,5 +1,13 @@
 # @ale0aranda/rules
 
+## 0.6.3
+
+### Patch Changes
+
+- [`d7bdf57`](https://github.com/ale0aranda/rules/commit/d7bdf574b221fa07ae7cdcc3d3857b21652e0109) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Fix Vitest path alias resolution
+
+- [`d7bdf57`](https://github.com/ale0aranda/rules/commit/d7bdf574b221fa07ae7cdcc3d3857b21652e0109) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Fix Vitest TypeScript path alias resolution
+
 ## 0.6.2
 
 ### Patch Changes
