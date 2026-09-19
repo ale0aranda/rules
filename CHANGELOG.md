@@ -1,5 +1,11 @@
 # @ale0aranda/rules
 
+## 0.7.0
+
+### Minor Changes
+
+- [`329071b`](https://github.com/ale0aranda/rules/commit/329071ba4b4a1b7f4fac170f43f0ca3db9423794) Thanks [@ale0aranda](https://github.com/ale0aranda)! - Add a shared Playwright configuration preset with typed consumer support.
+
 ## 0.6.4
 
 ### Patch Changes
