@@ -257,9 +257,15 @@ To consume a fixed GitHub revision:
 
 ```json
 {
-  "extends": ["github>ale0aranda/rules#v0.6.3"]
+  "extends": ["github>ale0aranda/rules#v0.6.4"]
 }
 ```
+
+## Examples
+
+Copy-paste-ready configuration files for the main presets live in
+[`examples/`](./examples). The collection covers Biome, Commitlint, TypeScript,
+Vitest, Playwright, Vite, Next.js, tsup, and Renovate.
 
 ## Quality guarantees
 

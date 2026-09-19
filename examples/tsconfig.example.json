@@ -1,0 +1,4 @@
+{
+	"extends": "@ale0aranda/rules/typescript/node",
+	"include": ["src", "scripts"]
+}
