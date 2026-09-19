@@ -21,6 +21,7 @@
 		"esbuild/**/*.mjs",
 		"vite/**/*.mjs",
 		"vitest/**/*.mjs",
-		"next/**/*.mjs"
+		"next/**/*.mjs",
+		"playwright/**/*.mjs"
 	]
 }
